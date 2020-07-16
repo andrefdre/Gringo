@@ -1,2 +1,20 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+</script>
+
 <p style="font-size:30px">Gringo</p>
-<button type="button">Join</button>
+
+<form id="frm1" action="/action_page.php">
+  name: <input type="text" name="name"><br>
+  <input type="button" onclick="myFunction()" value="Submit">
+</form>
+
+<script>
+function myFunction() {
+  var name =document.getElementById("frm1").submit();
+  socket.emit('join',{
+  reason:name + 'as joined'});
+}
+</script>
+
