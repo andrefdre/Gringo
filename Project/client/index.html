@@ -5,14 +5,14 @@
 
 <p style="font-size:30px">Gringo</p>
 
-<form id="frm1" action="/action_page.php">
+<form id="frm1" action="/name.php" method="get">
   name: <input type="text" name="name"><br>
   <input type="button" onclick="myFunction()" value="Join">
 </form>
 
 <script>
 function myFunction() {
-  var name =document.getElementById("frm1").submit();
+  var name =document.forms.namedItem("frm1").innerHTML;
   socket.emit('join',{
   reason:name + 'as joined'});
 }
